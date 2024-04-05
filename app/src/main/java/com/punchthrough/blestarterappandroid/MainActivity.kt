@@ -227,7 +227,8 @@ class MainActivity : AppCompatActivity() {
     private val connectionEventListener by lazy {
         ConnectionEventListener().apply {
             onConnectionSetupComplete = { gatt ->
-                Intent(this@MainActivity, BleOperationsActivity::class.java).also {
+                // Connect to device and use the GameOperationsActivity page
+                Intent(this@MainActivity, GameOperationsActivity::class.java).also {
                     it.putExtra(BluetoothDevice.EXTRA_DEVICE, gatt.device)
                     startActivity(it)
                 }
